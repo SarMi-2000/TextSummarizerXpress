@@ -17,6 +17,14 @@ process of extracting key information from lengthy texts, saving time and effort
 - **User-Friendly Interface**: The intuitive user interface of TextSummarizerXpress makes it easy for users to navigate the application,
   upload documents, select summarization options, and view the generated summaries.
 
+## Screenshots
+
+![Input Page](Input.jpg)
+*Figure 1: Input Page*
+
+![Output Page](Output_1.jpg)
+*Figure 2: Output Page*
+
 ## Getting Started
 
 ### Prerequisites
