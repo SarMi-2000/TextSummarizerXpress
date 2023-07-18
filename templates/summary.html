@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TextSummarizerXpress</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #25252a;
+            color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: rgb(248, 247, 253);
+            text-align: center;
+            border: #bbb;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(222, 125, 125, 0.5);
+        }
+
+        h3 {
+            color: #6958ca;
+            border: rgb(0, 0, 0);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+        h4 {
+            color: #000000;
+            border: rgb(0, 0, 0);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .summary-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000000;
+            box-shadow: 0 2px 4px rgba(7, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        #info-box {
+            color: #c6b730;
+            font-weight: bold;
+            border: rgb(0, 0, 0);
+            text-align: right;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(109, 56, 9, 0.2);
+        }
+
+        .algorithm-box {
+            border: 1px solid rgb(0, 0, 0);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .percentage-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #000000;
+        }
+
+        .summaries {
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: left;
+            border: #bbb;
+            text-shadow: 2px 2px 4px rgba(222, 125, 125, 0.5);
+            color: #4bbd28;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .summary-box {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid rgb(53, 3, 3);
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgb(158, 151, 151);
+        }
+
+        #file-data{
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid rgb(39, 3, 3);
+            background-color: #000000;
+            box-shadow:  2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #file-data p {
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(80, 2, 2, 0.5);
+            color: rgb(239, 239, 239);
+        }
+
+        .summary-box h3 {
+            color: rgb(20, 9, 103);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .input-file-data {
+            flex-basis: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .generated-summary {
+            flex-basis: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .input-file-data p,
+        .generated-summary p {
+            margin: 0;
+            color: rgb(42, 2, 2);
+        }
+
+        .input-file-data input-word-count,
+        .generated-summary output-word-count {
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+
+        .input-file-data h4,
+        .generated-summary h4 {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .combined-summary-box {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgb(158, 151, 151);
+            border: 1px solid rgb(42, 2, 2);
+        }
+
+        .combined-summary-box h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: rgb(20, 9, 103);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .combined-summary-box p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgb(42, 2, 2);
+        }
+
+        .combined-summary-box .output-word-count {
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 600px) {      
+            .summary-box {
+                flex-direction: column;
+            }
+
+            .summary-box .input-file-data,
+            .summary-box .generated-summary {
+                width: 100%;
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+        h2 {
+                font-size: 18px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="summary-container">
+      <h1>TextSummarizerXpress</h1>
+      <h3>"Summarize with Ease!!!"</h3>
+
+      <div id="info-box">
+        <p>Algorithm: {{ algorithm_name }}</p>
+        <p>Percentage: {{ percentage }}%</p>
+      </div>
+
+      <div class="summaries">
+        <h2>Individual Summaries</h2>
+        {% for summary in summaries %}
+        <div class="summary-box">
+          <div class="input-file-data">
+            <h3>Input File Data</h3>
+            <div id="file-data" style="max-height: 150px; overflow-y: auto;">
+              <p>{{ summary['input_file_data'] }}</p>
+            </div>
+            <h4>Input Word Count: {{ summary['input_word_count'] }}</h4>
+          </div>
+          <div class="generated-summary">
+            <h3>Generated Summary</h3>
+            <div id="file-data" style="max-height: 150px; overflow-y: auto;">
+              <p>{{ summary['summary'] }}</p>
+            </div>
+            <h4>Output Word Count: {{ summary['output_word_count'] }}</h4>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="combined-summary-box">
+        <h2>Combined Summary</h2>
+        <div id="file-data" style="max-height: 250px; overflow-y: auto;">
+          <p>{{ combined_summary }}</p>
+        </div>
+        <h4>Combined Output Word Count: {{ combined_output_word_count }}</h4>
+      </div>
+    </div>
+  </body>
+</html>

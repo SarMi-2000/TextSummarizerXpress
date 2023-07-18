@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TextSummarizerXpress</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #bbbbf5;
+            color: rgb(255, 255, 255);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: rgb(11, 5, 60);
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            color: #332871;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(66, 6, 6, 0.2);
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #000000;
+            box-shadow: 0 4px 6px rgba(1, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgb(253, 253, 253);
+            box-shadow: 0 4px 6px rgba(159, 147, 221, 0.4);
+            font-weight: bold;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+            background-color: #5a5af1;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(159, 147, 221, 0.4);
+            color: rgb(0, 0, 1);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        select {
+            margin-bottom: 10px;
+            background-color: #303346;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            box-shadow: 0 4px 6px rgba(159, 147, 221, 0.4);
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #5a5af1;
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(159, 147, 221, 0.4);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1b0678;
+            color: rgb(255, 255, 255);
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>TextSummarizerXpress</h1>
+    <h3>"Summarize with Ease!!!"</h3>
+    <form action="/summary" method="POST" enctype="multipart/form-data">
+        <label for="file">Upload Input Files:</label>
+        <input type="file" name="file" accept=".pdf,.txt,.docx" multiple>
+        <br>
+        <br>
+        <label for="percentage">Select Summary Length:</label>
+        <select name="percentage" id="percentage">
+            <option value="0" selected disabled>Select Percentage</option>
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+            <option value="40">40%</option>
+            <option value="50">50%</option>
+            <option value="60">60%</option>
+            <option value="70">70%</option>
+            <option value="80">80%</option>
+            <option value="90">90%</option>
+            <option value="100">100%</option>
+        </select>
+        <br>
+        <br>
+        <label for="algorithm">Select Algorithm:</label>
+        <select name="algorithm" id="algorithm">
+            <option value="0" selected disabled>Select Algorithm</option>
+            <option value="TfIdfPos">TF-IDF and POS-based Summarization</option>
+            <option value="TextRank">TextRank Summarization</option>
+            <option value="LSASumy">Latent Semantic Analysis Summarization</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Generate Summary">
+    </form>
+</body>
+</html>
+
