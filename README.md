@@ -14,7 +14,7 @@ process of extracting key information from lengthy texts, saving time and effort
 - **Customization Options**: Users can customize the summarization process by specifying the desired length or percentage of the summary,
   selecting specific sections or topics to focus on, and adjusting the level of detail required.
 
-- **Combined Summary: TextSummarizerXpress offers the ability to generate a combined summary that includes the key points extracted from
+- **Combined Summary**: TextSummarizerXpress offers the ability to generate a combined summary that includes the key points extracted from
   multiple documents. This feature is useful for summarizing a collection of related texts or conducting research.
 
 - **User-Friendly Interface**: The intuitive user interface of TextSummarizerXpress makes it easy for users to navigate the application,
