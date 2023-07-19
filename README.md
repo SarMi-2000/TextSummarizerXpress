@@ -23,6 +23,7 @@ process of extracting key information from lengthy texts, saving time and effort
 *Figure 1: Input Page*
 
 ![Output Page](Output_1.jpg)
+![Output Page](Output_2.jpg)
 *Figure 2: Output Page*
 
 ## Getting Started
